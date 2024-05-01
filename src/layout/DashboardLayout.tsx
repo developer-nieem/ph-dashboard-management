@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+import { ProjectOutlined, ContainerTwoTone } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import Link from "next/link";
 
@@ -13,18 +9,13 @@ const { Content, Sider } = Layout;
 const items = [
   {
     key: "1",
-    icon: <UploadOutlined />,
+    icon: <ProjectOutlined />,
     label: <Link href="/dashboard">Project Overview</Link>,
   },
   {
     key: "2",
-    icon: <UploadOutlined />,
-    label: "nav 2",
-  },
-  {
-    key: "3",
-    icon: <UploadOutlined />,
-    label: "nav 3",
+    icon: <ContainerTwoTone />,
+    label: <Link href="/dashboard/task-management">Task Management</Link>,
   },
 ];
 
