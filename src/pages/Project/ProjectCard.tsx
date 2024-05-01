@@ -7,11 +7,15 @@ import ProjectModal from "./ProjectModal";
 
 const { Meta } = Card;
 
-const ProjectCard = ({ project }) => {
-  const [open, setOpen] = useState(false);
-  const [projectId, setProjectId] = useState();
+interface ProjectCardProps {
+  project: IProject;
+}
 
-  const viewProject = (id) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [open, setOpen] = useState(false);
+  const [projectId, setProjectId] = useState<number | undefined>(undefined);
+
+  const viewProject = (id: number) => {
     setOpen(true);
     setProjectId(id);
   };

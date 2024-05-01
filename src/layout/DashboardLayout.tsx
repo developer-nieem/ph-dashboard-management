@@ -6,6 +6,7 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
+import Link from "next/link";
 
 const { Content, Sider } = Layout;
 
@@ -13,8 +14,7 @@ const items = [
   {
     key: "1",
     icon: <UploadOutlined />,
-    label: "Project Overview",
-    path: "dashboard/project-overview",
+    label: <Link href="/dashboard">Project Overview</Link>,
   },
   {
     key: "2",

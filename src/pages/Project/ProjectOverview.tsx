@@ -11,7 +11,7 @@ const ProjectOverview = () => {
   console.log(projects?.data);
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {projects?.data.map((item) => (
+      {projects?.data.map((item: IProject) => (
         <ProjectCard key={item.id} project={item} />
       ))}
     </div>
