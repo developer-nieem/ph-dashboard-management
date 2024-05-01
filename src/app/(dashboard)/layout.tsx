@@ -1,4 +1,5 @@
 import AuthProvider from "@/components/auth/AuthProvider";
+import DashboardLayout from "@/layout/DashboardLayout";
 import React from "react";
 
 const layout = ({
@@ -7,10 +8,12 @@ const layout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div>
-      {" "}
-      <AuthProvider>{children}</AuthProvider>{" "}
-    </div>
+    <>
+      <AuthProvider>
+        {" "}
+        <DashboardLayout>{children}</DashboardLayout>{" "}
+      </AuthProvider>
+    </>
   );
 };
 
