@@ -9,9 +9,10 @@ const { Meta } = Card;
 
 interface ProjectCardProps {
   project: IProject;
+  handleDelete: (projectId: number) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, handleDelete }) => {
   const [open, setOpen] = useState(false);
   const [projectId, setProjectId] = useState<number | undefined>(undefined);
 
@@ -28,7 +29,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       actions={[
         <EyeOutlined key="view" onClick={() => viewProject(project.id)} />,
         <EditOutlined key="edit" />,
-        <DeleteOutlined key="delete" />,
+        <DeleteOutlined
+          key="delete"
+          onClick={() => handleDelete(project.id)}
+        />,
       ]}
     >
       <ProjectModal open={open} setOpen={setOpen} projectId={projectId} />
