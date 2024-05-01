@@ -1,5 +1,5 @@
 import useTaskStore from "@/zustand/task-store";
-import { Modal } from "antd";
+import { Button, Modal } from "antd";
 import React from "react";
 
 interface TaskModalProps {
@@ -17,7 +17,7 @@ const TaskDetailsModal: React.FC<TaskModalProps> = ({
 
   const task = projectId ? taskData.find((p) => p.id === projectId) : null;
 
-  const dateString = new Date(task?.date).toLocaleDateString();
+  const dateString = task?.date ? new Date(task.date).toLocaleDateString() : "";
   console.log("task", dateString);
   return (
     <div>
@@ -37,8 +37,8 @@ const TaskDetailsModal: React.FC<TaskModalProps> = ({
             <span className="font-bold">description:</span> {task?.description}
           </p>
 
-          <div>
-            <div className="flex gap-2">
+          <div className="space-y-4">
+            <div className="flex gap-2  items-center">
               <span className="font-bold">Assigned Developer:</span>{" "}
               {task?.developer.map((dv, index) => (
                 <p key={index}> {dv}, </p>
@@ -46,7 +46,8 @@ const TaskDetailsModal: React.FC<TaskModalProps> = ({
             </div>
             <div>
               {" "}
-              <span className="font-bold">Task Status:</span> {task?.status}
+              <span className="font-bold">Task Status:</span>{" "}
+              <Button type="primary">{task?.status}</Button>
             </div>
             <div>
               {" "}

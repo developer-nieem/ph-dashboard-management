@@ -3,6 +3,5 @@ interface IProject {
     title: string;
     description: string;
     image: string;
-    tasks: Task[];
-    members: Member[];
+    
   }

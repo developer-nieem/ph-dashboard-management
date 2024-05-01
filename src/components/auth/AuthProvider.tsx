@@ -10,8 +10,8 @@ const AuthProvider = ({
 }>) => {
   const router = useRouter();
 
-  //   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const isAuthenticated = true;
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  // const isAuthenticated = true;
 
   if (!isAuthenticated) {
     router.push("/");
