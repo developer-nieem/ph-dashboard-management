@@ -5,6 +5,7 @@ import type { FormProps } from "antd";
 import { Button, Form, Input } from "antd";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
+import useAuthStore from "@/zustand/auth-store";
 
 type FieldType = {
   username?: string;
@@ -17,13 +18,14 @@ const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
 
 const Login: React.FC = () => {
   const router = useRouter();
+  const setAuthenticated = useAuthStore((state) => state.login);
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     if (
       values.username?.toLowerCase() === "admin" &&
       values.password?.toLowerCase() === "admin"
     ) {
-      console.log("Success:", values);
       Swal.fire("Successfully Logged in!");
+      setAuthenticated();
       router.push("/dashboard");
     } else {
       Swal.fire("Please put correct username & Password");
